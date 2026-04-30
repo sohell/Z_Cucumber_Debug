@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven3'
-        jdk 'JDK17'
+        maven 'MyMaven'
+        jdk 'JDK-21.0.7.6'
     }
 
     environment {
@@ -31,15 +31,18 @@ pipeline {
         }
 
         stage('Generate Report') {
-            steps {
-                publishHTML([
-                    reportDir: 'target',
-                    reportFiles: 'cucumber-report.html',
-                    reportName: 'Cucumber Report'
-                ])
-            }
-        }
+        stage('Publish Report') {
+    steps {
+        publishHTML([
+            reportDir: 'target',
+            reportFiles: 'cucumber-report.html',
+            reportName: 'Cucumber Report',
+            keepAll: true,
+            alwaysLinkToLastBuild: true,
+            allowMissing: true
+        ])
     }
+}
 
     post {
         success {
