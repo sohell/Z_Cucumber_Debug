@@ -52,7 +52,7 @@ pipeline {
             echo 'Some tests failed. Check reports.'
         }
         always {
-            archiveArtifacts artifacts: 'target/*.html'
+            archiveArtifacts artifacts: 'reports/*.html'
         }
     }
 }
