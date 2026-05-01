@@ -5,7 +5,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features= {".//features/ProductCompare.feature"},
+@CucumberOptions(features= {".//features"},
 				glue= {"stepDefinitions","hooks"}, 
 				plugin= {"pretty", "html:reports/myreport.html",
 						"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
@@ -13,7 +13,7 @@ import io.cucumber.junit.CucumberOptions;
 				dryRun=false,
 				monochrome=true,
 				publish=true )
-public class RunnerClass 
+public class TestRunnerClass 
 {
 
 }

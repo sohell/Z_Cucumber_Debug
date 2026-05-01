@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         maven 'MyMaven'
-        jdk 'JDK-21.0.7.6'
+        jdk 'jdk'
     }
 
     environment {
@@ -26,15 +26,15 @@ pipeline {
 
         stage('Execute Tests') {
             steps {
-                bat "mvn test -Dbrowser=${BROWSER}"
+                bat "mvn test"
             }
         }
 
         stage('Publish Report') {
             steps {
                 publishHTML([
-                    reportDir: 'target',
-                    reportFiles: 'cucumber-report.html',
+                    reportDir: 'reports',
+                    reportFiles: 'myreport.html',
                     reportName: 'Cucumber Report',
                     keepAll: true,
                     alwaysLinkToLastBuild: true,
@@ -52,7 +52,7 @@ pipeline {
             echo 'Some tests failed. Check reports.'
         }
         always {
-            archiveArtifacts artifacts: 'target/*.html'
+            archiveArtifacts artifacts: 'reports/*.html'
         }
     }
 }
