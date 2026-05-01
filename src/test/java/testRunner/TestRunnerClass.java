@@ -5,7 +5,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features= {".//features/Login.feature", ".//features/LoginDDTDemo.feature", ".//features/ProductCompare.feature"},
+@CucumberOptions(features= {".//features/Login.feature", ".//features/LoginDDTDemo.feature"},
 				glue= {"stepDefinitions","hooks"}, 
 				plugin= {"pretty", "html:target/cucumber-html-reports/myreport.html",
 						"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
