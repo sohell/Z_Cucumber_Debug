@@ -33,8 +33,8 @@ pipeline {
         stage('Publish Report') {
             steps {
                 publishHTML([
-                    reportDir: 'target',
-                    reportFiles: 'cucumber-report.html',
+                    reportDir: 'reports',
+                    reportFiles: 'myreport.html',
                     reportName: 'Cucumber Report',
                     keepAll: true,
                     alwaysLinkToLastBuild: true,
