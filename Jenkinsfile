@@ -32,14 +32,14 @@ pipeline {
 
         stage('Publish Report') {
             steps {
-                publishHTML([
-                    reportDir: 'reports',
-                    reportFiles: 'myreport.html',
-                    reportName: 'Cucumber Report',
-                    keepAll: true,
-                    alwaysLinkToLastBuild: true,
-                    allowMissing: true
-                ])
+                 publishHTML([
+            reportDir: 'target/cucumber-html-reports',
+            reportFiles: 'index.html',
+            reportName: 'Cucumber Report',
+            keepAll: true,
+            alwaysLinkToLastBuild: true,
+            allowMissing: false
+        ])
             }
         }
     }
