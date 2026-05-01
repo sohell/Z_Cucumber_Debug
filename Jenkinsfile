@@ -10,14 +10,6 @@ pipeline {
         BROWSER = 'chrome'
     }
 
-    stages {
-
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/sohell/Z_Cucumber_Test.git'
-            }
-        }
-
         stage('Clean & Build') {
             steps {
                 bat 'mvn clean compile'
