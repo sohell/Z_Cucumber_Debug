@@ -26,7 +26,7 @@ pipeline {
 
         stage('Execute Tests') {
             steps {
-                bat "mvn test -Dbrowser=${BROWSER}"
+                bat "mvn test"
             }
         }
 
