@@ -30,19 +30,19 @@ pipeline {
             }
         }
 
-        stage('Generate Report') {
         stage('Publish Report') {
-    steps {
-        publishHTML([
-            reportDir: 'target',
-            reportFiles: 'cucumber-report.html',
-            reportName: 'Cucumber Report',
-            keepAll: true,
-            alwaysLinkToLastBuild: true,
-            allowMissing: true
-        ])
+            steps {
+                publishHTML([
+                    reportDir: 'target',
+                    reportFiles: 'cucumber-report.html',
+                    reportName: 'Cucumber Report',
+                    keepAll: true,
+                    alwaysLinkToLastBuild: true,
+                    allowMissing: true
+                ])
+            }
+        }
     }
-}
 
     post {
         success {
