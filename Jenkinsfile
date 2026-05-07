@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-	 triggers {
+    triggers {
         githubPush()
     }
     
@@ -13,6 +13,8 @@ pipeline {
     environment {
         BROWSER = 'chrome'
     }
+
+    stages {   // ✅ MISSING BLOCK ADDED
 
         stage('Clean & Build') {
             steps {
@@ -28,17 +30,17 @@ pipeline {
 
         stage('Publish Report') {
             steps {
-                 publishHTML([
-            reportDir: 'target/cucumber-html-reports',
-            reportFiles: 'index.html',
-            reportName: 'Cucumber Report',
-            keepAll: true,
-            alwaysLinkToLastBuild: true,
-            allowMissing: false
-        ])
+                publishHTML([
+                    reportDir: 'target/cucumber-html-reports',
+                    reportFiles: 'index.html',
+                    reportName: 'Cucumber Report',
+                    keepAll: true,
+                    alwaysLinkToLastBuild: true,
+                    allowMissing: false
+                ])
             }
         }
-    }
+    }   // ✅ closes stages
 
     post {
         success {
