@@ -7,5 +7,5 @@ Feature: Login Data Driven
 		
 		Examples:
 			|email             | password  |
-			|aas12@gmail1.com   | Test@12345|
+			|aas12@gmail.com   | Test@12345|
 			|pavanol@gmail.com | test123   |
