@@ -36,7 +36,10 @@ pipeline {
         
         stage('Re-run Failed Tests') {
 		    steps {
+				 catchError(buildResult: 'SUCCESS',
+                           stageResult: 'FAILURE') {
         		bat 'mvn test -Dcucumber.features="@target/rerun.txt"'
+        		}
     		}
 		}
 
