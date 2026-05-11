@@ -1,3 +1,4 @@
+@compare @smoke @regression
 Feature: Product Comparison Functionality
 
 Background:

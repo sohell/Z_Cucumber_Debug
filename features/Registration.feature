@@ -1,3 +1,4 @@
+@registration @smoke @regression
 Feature: Accout Registration
 		Scenario: Successful Account Registration
 			Given user navigate to registration page

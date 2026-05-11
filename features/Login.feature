@@ -1,3 +1,4 @@
+@login @regression
 Feature: Login with valid credentials
 	Scenario: Successful Login
 		Given the user navigate to login page

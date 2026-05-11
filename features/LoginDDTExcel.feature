@@ -1,3 +1,4 @@
+@loginDD
 Feature: Login Data Driven with Excel
 	Scenario Outline: Login Data Driveen Excel
 		Given the user navigate to Login Page

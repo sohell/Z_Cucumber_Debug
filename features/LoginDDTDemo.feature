@@ -1,3 +1,4 @@
+@loginDD
 Feature: Login Data Driven
 	Scenario Outline: Login with multiple credentials
 		Given user navigate to login page
