@@ -30,7 +30,7 @@ pipeline {
 
         stage('Execute Tests') {
             steps {
-                bat 'mvn test -Dcucumber.filter.tags=${TAG}'
+                bat "mvn test -Dcucumber.filter.tags=${TAG}"
             }
         }
 
