@@ -30,15 +30,19 @@ pipeline {
 
         stage('Execute Tests') {
             steps {
+				 steps {
+				 catchError(buildResult: 'SUCCESS',
+                           stageResult: 'FAILURE') {
                 bat "mvn test -Dcucumber.filter.tags=${TAG}"
+                }
             }
         }
         
         stage('Re-run Failed Tests') {
-		    steps {
-				 catchError(buildResult: 'SUCCESS',
+			steps {
+                catchError(buildResult: 'SUCCESS',
                            stageResult: 'FAILURE') {
-        		bat 'mvn test -Dcucumber.features="@target/rerun.txt"'
+                    bat 'mvn test -Dcucumber.features="@target/rerun.txt"'
         		}
     		}
 		}
