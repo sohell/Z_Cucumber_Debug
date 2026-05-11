@@ -33,6 +33,12 @@ pipeline {
                 bat "mvn test -Dcucumber.filter.tags=${TAG}"
             }
         }
+        
+        stage('Re-run Failed Tests') {
+		    steps {
+        		bat 'mvn test -Dcucumber.features="@target/rerun.txt"'
+    		}
+		}
 
         stage('Publish Report') {
             steps {
