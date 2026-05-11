@@ -5,6 +5,12 @@ pipeline {
         githubPush()
     }
     
+    parameters {
+        string(name: 'TAG',
+               defaultValue: '@smoke',
+               description: 'Enter Cucumber Tag')
+    }
+    
     tools {
         maven 'MyMaven'
         jdk 'jdk'
@@ -24,7 +30,7 @@ pipeline {
 
         stage('Execute Tests') {
             steps {
-                bat 'mvn test -Dcucumber.filter.tags=@smoke'
+                bat 'mvn test -Dcucumber.filter.tags=${TAG}'
             }
         }
 
